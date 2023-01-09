@@ -73,9 +73,11 @@ const App = () => {
                             <h1>{formData?.header?.title}</h1>
                         </div>
                         {formData?.body?.map((data, index) => {
+                            console.log(data)
                             return <div id={`main-block_${index}`} key={`${index}`}
                                         className={`js-form ${index === step ? "" : "hidden"}`}>
-                                {data.map((item, index1) => {
+                                {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
+                                {data.form.map((item, index1) => {
                                     return item.element ? <div className="form__group" key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
                                             {item.element.tag === "input" && <input type={`${item.element.type}`}
