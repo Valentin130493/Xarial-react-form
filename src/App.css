@@ -292,6 +292,10 @@ a {
     cursor: pointer;
 }
 
+dialog {
+    visibility: hidden;
+}
+
 
 @media (max-width: 767px) {
     .js-form {

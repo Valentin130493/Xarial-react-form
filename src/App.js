@@ -11,12 +11,10 @@ const App = () => {
     const [openDialog, setOpenDialog] = useState(false)
     const [formValues, setFormValues] = useState({})
 
-    console.log(formValues)
     useEffect(() => {
         setLoading(true)
         axios.get(`https://test-nscu.onrender.com/form`)
             .then((res) => {
-                console.log(res.data)
                 setFormData(res.data)
             })
         setTimeout(() => setLoading(false), 1500)
@@ -24,21 +22,12 @@ const App = () => {
 
     const nextHandleClick = () => {
         const condition = formValues?.service === undefined ? 0 : formValues?.service
-        switch (condition) {
-            case 'New Product/Macro development':
-                return setStep(1);
-            case 'SOLIDWORKS API consultancy':
-                return setStep(2);
-            case 'Other':
-                return setStep(3);
-            default:
-                setStep(0)
-        }
-
+        setStep(Number(condition))
     }
 
     const backHandleClick = () => {
         setStep(0)
+        setFormValues({})
     }
     const handleInputChange = (e) => {
         setFormValues({...formValues, [e.target.name]: e.target.value})
@@ -53,17 +42,18 @@ const App = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        console.log('click')
+        setFormValues({
+            ...formValues,
+            service: formData.body[0].form[formData.body[0].form.length - 1].elements[step - 1].label
+        })
         setOpenDialog(true)
-        // await axios.post(`http://localhost:8080/docs`, formValues)
-        console.log(formValues)
+        await axios.post(`http://localhost:8080/docs`, formValues)
     }
     const handleClickAgain = () => {
         setFormValues({})
         setOpenDialog(false)
     }
-    console.log(openDialog)
+
     return (
         <div className="App">
             {loading ? <div className="loader-03"/> :
@@ -126,7 +116,7 @@ const App = () => {
                     </form>
 
 
-                    <dialog open={openDialog} id="dialog">
+                    <dialog open={openDialog}>
                         <div className={"dialog-wrapper"}>
                             <div className="final-step ">
                                 <h1>{formData?.modal?.title}</h1>
