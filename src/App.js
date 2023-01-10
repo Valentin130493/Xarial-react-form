@@ -47,7 +47,7 @@ const App = () => {
             service: formData.body[0].form[formData.body[0].form.length - 1].elements[step - 1].label
         })
         setOpenDialog(true)
-        await axios.post(`http://localhost:8080/docs`, formValues)
+        await axios.post(`https://test-nscu.onrender.com/docs`, formValues)
     }
     const handleClickAgain = () => {
         setFormValues({})
