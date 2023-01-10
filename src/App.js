@@ -67,7 +67,7 @@ const App = () => {
                                         className={`js-form ${index === step ? "" : "hidden"}`}>
                                 {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
                                 {data.form.map((item, index1) => {
-                                    return item.element ? <div className="form__group" key={`${index1}`}>
+                                    return item.element ? <div className={`form__group ${index === index[0] ? "" : "form__group_uniq"}`} key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
                                             {item.element.tag === "input" && <input type={`${item.element.type}`}
                                                                                     className="input"
@@ -80,7 +80,7 @@ const App = () => {
 
                                         </div>
                                         :
-                                        <div className="form__group" key={`${index1}`}>
+                                        <div className='form__group' key={`${index1}`}>
                                             <p className="question">{item.title}</p>
 
                                             <div className="radioBtn service">

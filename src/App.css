@@ -100,6 +100,7 @@ body {
 }
 
 .date {
+    width: 10%;
     border: none;
     border-bottom: 1px solid #ccc;
     padding: 5px;
@@ -248,10 +249,13 @@ h3 {
     flex-direction: row-reverse;
 }
 
-input:first-child {
+ input[type="radio"]:first-child {
+     accent-color: rgb(103, 58, 183);
+ }
+
+input[type="radio"] {
     width: 30px;
-    height: 20px;
-    background-color: rgb(103, 58, 183);
+     height: 20px;
 }
 
 a {
