@@ -96,7 +96,7 @@ const App = () => {
 
                                         </div>
                                         :
-                                        <div className='form__group' key={`${index1}`}>
+                                        <div className={`${(step !== 0 && index1 !== 0) ? "form__group" : "form__group__uniq"}`} key={`${index1}`}>
                                             <p className="question">{item.title}</p>
 
                                             <div className="radioBtn service">
