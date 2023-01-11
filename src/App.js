@@ -10,7 +10,7 @@ const App = () => {
     const [step, setStep] = useState(0)
     const [openDialog, setOpenDialog] = useState(false)
     const [formValues, setFormValues] = useState({})
-
+    // const [error, serError] = useState({})
     useEffect(() => {
         setLoading(true)
         axios.get(`https://test-nscu.onrender.com/form`)
@@ -19,7 +19,7 @@ const App = () => {
             })
         setTimeout(() => setLoading(false), 1500)
     }, [])
-
+    console.log(formValues)
     const nextHandleClick = () => {
         const condition = formValues?.service === undefined ? 0 : formValues?.service
         setStep(Number(condition))
@@ -30,9 +30,19 @@ const App = () => {
         setFormValues({})
     }
     const handleInputChange = (e) => {
-        setFormValues({...formValues, [e.target.name]: e.target.value})
+        e.target.type === "checkbox" ?
+            setFormValues({...formValues, [e.target.name]: `${e.target.checked}`}) :
+            setFormValues({
+                ...formValues,
+                [e.target.name]: e.target.value
+            })
+        // if (e.target.value === "" || e.target.value == null) {
+        //     serError({...error, [e.target.name]: "Field can't be empty"})
+        // }
+
     }
     const radioButtonClick = (e) => {
+
         setFormValues({...formValues, [e.target.name]: e.target.value})
     }
     const handleClearForm = (e) => {
@@ -54,6 +64,7 @@ const App = () => {
         setOpenDialog(false)
     }
 
+
     return (
         <div className="App">
             {loading ? <div className="loader-03"/> :
@@ -67,16 +78,21 @@ const App = () => {
                                         className={`js-form ${index === step ? "" : "hidden"}`}>
                                 {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
                                 {data.form.map((item, index1) => {
-                                    return item.element ? <div className={`form__group ${index === index[0] ? "" : "form__group_uniq"}`} key={`${index1}`}>
+                                    return item.element ?
+                                        <div
+                                            className={`${(step !== 0 && index1 !== 0) ? "form__group" : "form__group__uniq"}`}
+                                            key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
                                             {item.element.tag === "input" && <input type={`${item.element.type}`}
-                                                                                    className="input"
+                                                                                    className={` input `}
                                                                                     name={`${item.element.name}`}
-                                                                                    min={2}
+                                                                                    minLength={2}
                                                                                     value={Object.keys(formValues).includes(item.element.name) ? formValues[item.element.name] : ""}
                                                                                     onChange={(e) => handleInputChange(e)}
                                                                                     placeholder={`${item.element.placeholder}`}
+                                                                                    required={true}
                                             />}
+                                            {/*{error && <p className={"errorMessage"}>{error[item.element.name]}</p>}*/}
 
                                         </div>
                                         :

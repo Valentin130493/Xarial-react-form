@@ -44,6 +44,7 @@ body {
     padding: 24px;
     margin-bottom: 15px;
     cursor: pointer;
+
 }
 
 .question:after {
@@ -53,6 +54,7 @@ body {
     letter-spacing: 0.2px;
     line-height: 24px;
     margin-left: 3px;
+
 }
 
 .form__group:first-child {
@@ -70,8 +72,11 @@ body {
 }
 
 .form__group__uniq {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #dadce0;
+    padding: 24px;
+    margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .js-form {
@@ -237,10 +242,11 @@ h3 {
     border-color: red;
 }
 
-.errMes {
-    color: #d93025;
+.errorMessage {
+    color: red;
     font-size: 14px;
 }
+
 
 .radioBtn label {
     display: flex;
@@ -249,13 +255,13 @@ h3 {
     flex-direction: row-reverse;
 }
 
- input[type="radio"]:first-child {
-     accent-color: rgb(103, 58, 183);
- }
+input[type="radio"]:first-child {
+    accent-color: rgb(103, 58, 183);
+}
 
 input[type="radio"] {
     width: 30px;
-     height: 20px;
+    height: 20px;
 }
 
 a {
