@@ -22,7 +22,8 @@ const App = () => {
     }, [])
     console.log(formValues)
     const nextHandleClick = () => {
-        if (!Object.keys(error)){
+
+        if (!Object.keys(error).length && Object.keys(formValues).length > 2) {
             const condition = formValues?.service === undefined ? 0 : formValues?.service
             setStep(Number(condition))
         }
@@ -40,7 +41,7 @@ const App = () => {
                 ...formValues,
                 [e.target.name]: e.target.value
             })
-      serError({})
+        serError({})
 
     }
     const radioButtonClick = (e) => {
@@ -87,9 +88,11 @@ const App = () => {
                                         className={`js-form ${index === step ? "" : "hidden"}`}>
                                 {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
                                 {data.form.map((item, index1) => {
+                                    console.log(item, index1)
+                                    console.log((step !== 0 && index1 === 0))
                                     return item.element ?
                                         <div
-                                            className={`${(step !== 0 && index1 !== 0) ? "form__group" : "form__group__uniq"}`}
+                                            className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
                                             key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
                                             {item.element.tag === "input" && <input type={`${item.element.type}`}
@@ -106,7 +109,9 @@ const App = () => {
 
                                         </div>
                                         :
-                                        <div className={`${(step !== 0 && index1 !== 0) ? "form__group" : "form__group__uniq"}`} key={`${index1}`}>
+                                        <div
+                                            className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
+                                            key={`${index1}`}>
                                             <p className="question">{item.title}</p>
 
                                             <div className="radioBtn service">
