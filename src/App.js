@@ -10,7 +10,8 @@ const App = () => {
     const [step, setStep] = useState(0)
     const [openDialog, setOpenDialog] = useState(false)
     const [formValues, setFormValues] = useState({})
-    // const [error, serError] = useState({})
+    const [error, serError] = useState({})
+
     useEffect(() => {
         setLoading(true)
         axios.get(`https://test-nscu.onrender.com/form`)
@@ -21,8 +22,11 @@ const App = () => {
     }, [])
     console.log(formValues)
     const nextHandleClick = () => {
-        const condition = formValues?.service === undefined ? 0 : formValues?.service
-        setStep(Number(condition))
+        if (!Object.keys(error)){
+            const condition = formValues?.service === undefined ? 0 : formValues?.service
+            setStep(Number(condition))
+        }
+
     }
 
     const backHandleClick = () => {
@@ -36,18 +40,16 @@ const App = () => {
                 ...formValues,
                 [e.target.name]: e.target.value
             })
-        // if (e.target.value === "" || e.target.value == null) {
-        //     serError({...error, [e.target.name]: "Field can't be empty"})
-        // }
+      serError({})
 
     }
     const radioButtonClick = (e) => {
-
         setFormValues({...formValues, [e.target.name]: e.target.value})
     }
     const handleClearForm = (e) => {
         e.preventDefault()
         setFormValues({})
+        serError({})
         setStep(0)
     }
     const handleSubmit = async (e) => {
@@ -63,7 +65,14 @@ const App = () => {
         setFormValues({})
         setOpenDialog(false)
     }
+    const handleBlur = (e) => {
+        if (!e.target.value) {
+            const message = "Required"
+            serError({...error, [e.target.name]: message})
+        }
 
+
+    }
 
     return (
         <div className="App">
@@ -84,15 +93,16 @@ const App = () => {
                                             key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
                                             {item.element.tag === "input" && <input type={`${item.element.type}`}
-                                                                                    className={` input `}
+                                                                                    className={` input ${Object.keys(error).includes(item.element.name) ? "error errorInput" : ""}`}
                                                                                     name={`${item.element.name}`}
                                                                                     minLength={2}
                                                                                     value={Object.keys(formValues).includes(item.element.name) ? formValues[item.element.name] : ""}
                                                                                     onChange={(e) => handleInputChange(e)}
+                                                                                    onBlur={(e) => handleBlur(e)}
                                                                                     placeholder={`${item.element.placeholder}`}
                                                                                     required={true}
                                             />}
-                                            {/*{error && <p className={"errorMessage"}>{error[item.element.name]}</p>}*/}
+                                            {error && <p className={"errorMessage"}>{error[item.element.name]}</p>}
 
                                         </div>
                                         :
