@@ -20,7 +20,7 @@ const App = () => {
             })
         setTimeout(() => setLoading(false), 1500)
     }, [])
-    console.log(formValues)
+
     const nextHandleClick = () => {
 
         if (!Object.keys(error).length && Object.keys(formValues).length > 2) {
