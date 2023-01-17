@@ -88,8 +88,6 @@ const App = () => {
                                         className={`js-form ${index === step ? "" : "hidden"}`}>
                                 {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
                                 {data.form.map((item, index1) => {
-                                    console.log(item, index1)
-                                    console.log((step !== 0 && index1 === 0))
                                     return item.element ?
                                         <div
                                             className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
@@ -103,7 +101,6 @@ const App = () => {
                                                                                     onChange={(e) => handleInputChange(e)}
                                                                                     onBlur={(e) => handleBlur(e)}
                                                                                     placeholder={`${item.element.placeholder}`}
-                                                                                    required={true}
                                             />}
                                             {error && <p className={"errorMessage"}>{error[item.element.name]}</p>}
 
