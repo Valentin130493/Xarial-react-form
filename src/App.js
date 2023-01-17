@@ -131,13 +131,12 @@ const App = () => {
                                 <div className="block_btn">
                                     <button type={"button"} className="btn"
                                             onClick={() => index === 0 ? nextHandleClick() : backHandleClick()}>
-                                        {index === 0 ? formData?.footer?.buttons?.next : formData?.footer?.buttons?.back}
+                                        {index === 0 ? formData?.buttons?.next : formData?.buttons?.back}
                                     </button>
                                     {index !== 0 && <button type={"submit"} className="btn">
-                                        {formData?.footer?.buttons?.submit}
+                                        {formData?.buttons?.submit}
                                     </button>}
-                                    <button className="btn" onClick={(e) => handleClearForm(e)}>Clear
-                                        form
+                                    <button className="btn" onClick={(e) => handleClearForm(e)}>{formData?.buttons?.clear}
                                     </button>
                                 </div>
                             </div>
