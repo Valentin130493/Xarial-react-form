@@ -11,7 +11,7 @@ const App = () => {
     const [openDialog, setOpenDialog] = useState(false)
     const [formValues, setFormValues] = useState({})
     const [error, serError] = useState({})
-
+    console.log(openDialog)
     useEffect(() => {
         setLoading(true)
         axios.get(`https://test-nscu.onrender.com/form`)
@@ -65,6 +65,7 @@ const App = () => {
     const handleClickAgain = () => {
         setFormValues({})
         setOpenDialog(false)
+        setStep(0)
     }
     const handleBlur = (e) => {
         if (!e.target.value) {
