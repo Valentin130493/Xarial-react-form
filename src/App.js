@@ -1,5 +1,8 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import email from './assets/images/contact-email.svg'
+import address from './assets/images/contact-address.svg'
+import phone from './assets/images/contact-phone.svg'
 
 import './App.css';
 
@@ -12,6 +15,7 @@ const App = () => {
     const [formValues, setFormValues] = useState({})
     const [error, serError] = useState({})
     console.log(openDialog)
+    console.log(formData)
     useEffect(() => {
         setLoading(true)
         axios.get(`https://test-nscu.onrender.com/form`)
@@ -94,7 +98,7 @@ const App = () => {
                                             className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
                                             key={`${index1}`}>
                                             <p className="question"> {item.title}</p>
-                                            {item.element.tag === "input" && <input type={`${item.element.type}`}
+                                            {item.element.tag === "input" && <input type={`${ item.element.type}`}
                                                                                     className={` input ${Object.keys(error).includes(item.element.name) ? "error errorInput" : ""}`}
                                                                                     name={`${item.element.name}`}
                                                                                     minLength={2}
@@ -143,7 +147,6 @@ const App = () => {
                         })}
                     </form>
 
-
                     <dialog open={openDialog}>
                         <div className={"dialog-wrapper"}>
                             <div className="final-step ">
@@ -155,7 +158,60 @@ const App = () => {
                             </div>
                         </div>
                     </dialog>
-
+                    <footer>
+                        <div className='footer-mainText'>
+                            {formData.footer?.mainText}
+                        </div>
+                        <div className='footer-mainBlock'>
+                            <div className='footer-mainBlock-left'>
+                                <a className='footer-links' target='_blank' href={formData.footer?.termsLink}>Terms Of Use</a>
+                                <a className='footer-links' target='_blank' href={formData.footer?.privacyLink}>Privacy</a>
+                                <a className='footer-links' target='_blank' href={formData.footer?.cookiesLink}>Cookies</a>
+                            </div>
+                            <div className='footer-mainBlock-right'>
+                                <div className='footer-mainBlock-right-icon'><img className='icon-images' src={email}/><a className='footer-links' href={`mailto:${formData.footer?.mailLink}`}>{formData.footer?.mailLink}</a></div>
+                                <div className='footer-mainBlock-right-icon'><img className='icon-images' src={phone}/> <a className='footer-links' href={`tel:${formData.footer?.phoneLink}`}>{formData.footer?.phoneLink}</a></div>
+                                <div className='footer-mainBlock-right-icon'><img className='icon-images' src={address}/> <p className='footer-paragraph'>{formData.footer?.address}</p></div>
+                                <div className='abn'><p className='footer-paragraph'>ABN: </p> <p className='footer-paragraph'>{formData.footer?.abn}</p></div>
+                            </div>
+                        </div>
+                        {/*<div>*/}
+                        {/*<p className='layout-footer-copyright'>*/}
+                        {/*© 2022 Xarial Pty Limited. All rights reserved.*/}
+                        {/*</p>*/}
+                        {/*</div>*/}
+                        {/*<div className="layout-footer-contact">*/}
+                        {/*    <table>*/}
+                        {/*        <tbody>*/}
+                        {/*        <tr>*/}
+                        {/*            <td className="contact-img"><img className="icon-image" alt="Contact us via e-mail"/></td>*/}
+                        {/*            <td className="contact-text"><a className="mail-link" href="mailto:info@xarial.com">info@xarial.com</a>*/}
+                        {/*            </td>*/}
+                        {/*        </tr>*/}
+                        {/*        <tr>*/}
+                        {/*            <td className="contact-img"><img className="icon-image" alt="Contact us by phone"/></td>*/}
+                        {/*            <td className="contact-text"><a className="phone-link" href="tel:+61 435 577 927">+61 435 577 927</a>*/}
+                        {/*            </td>*/}
+                        {/*        </tr>*/}
+                        {/*        <tr>*/}
+                        {/*            <td className="contact-img"><img className="icon-image" alt="Mailing address"/></td>*/}
+                        {/*            <td className="contact-text">PO BOX 1163, Dee Why, NSW, 2099</td>*/}
+                        {/*        </tr>*/}
+                        {/*        <tr>*/}
+                        {/*            <td className="contact-img">ABN:</td>*/}
+                        {/*            <td className="contact-text">{formData.footer.abn}</td>*/}
+                        {/*        </tr>*/}
+                        {/*        </tbody>*/}
+                        {/*    </table>*/}
+                        {/*</div>*/}
+                        {/*<div className='layout-footer-links'>*/}
+                        {/*    <span>*/}
+                        {/*        <a className="legal-link" href='/terms-of-us/'> Terms Of Use</a>*/}
+                        {/*        <a className="legal-link" href='/privacy-policy' >Privacy</a>*/}
+                        {/*        <a className="legal-link" href='cookies-policy'>Cookies</a>*/}
+                        {/*    </span>*/}
+                        {/*</div>*/}
+                    </footer>
                 </>
             }
         </div>

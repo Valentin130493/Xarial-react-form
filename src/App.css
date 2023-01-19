@@ -1,22 +1,83 @@
 
-*, *:before, *:after {
-    box-sizing: border-box;
-}
+/**, *:before, *:after {*/
+/*    box-sizing: border-box;*/
+/*}*/
 
 
 body {
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*width: 100%;*/
+    /*justify-content: center;*/
     font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
 }
 
 .App {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #727272;
+    font-size: 19px;
+}
+
+.footer-mainBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top:30px;
+    margin-bottom: 10px;
+}
+
+.footer-mainBlock-right-icon {
+    margin: 5px 0;
+    display: flex;
+}
+
+.icon-images {
+    width: 20px;
+}
+
+.footer-links{
+    color: #FFFFFF;
+    margin: 0 10px;
+}
+
+.footer-mainText {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    letter-spacing: .2px;
+}
+
+.footer-mainBlock-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-mainBlock-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.abn {
+    display: flex;
+}
+
+.footer-paragraph {
+    margin: 0 5px;
 }
 
 .loader-03 {
@@ -213,10 +274,10 @@ input:checked[type="checkbox"]::after {
     display: none;
 }
 
-p {
-    font-size: 16px;
-    letter-spacing: .2px;
-}
+/*p {*/
+/*    font-size: 16px;*/
+/*    letter-spacing: .2px;*/
+/*}*/
 
 h3 {
     letter-spacing: .2px;
