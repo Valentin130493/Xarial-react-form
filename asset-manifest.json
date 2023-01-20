@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/Xarial-react-form/static/css/main.7c455cd1.css",
-    "main.js": "/Xarial-react-form/static/js/main.beb8b4c9.js",
+    "main.css": "/Xarial-react-form/static/css/main.e3589330.css",
+    "main.js": "/Xarial-react-form/static/js/main.ed5c7f88.js",
+    "static/media/contact-email.svg": "/Xarial-react-form/static/media/contact-email.f8fb37082356b4445b0fd26a06e7a06d.svg",
+    "static/media/contact-address.svg": "/Xarial-react-form/static/media/contact-address.57f7eec7d5dc2e1be373a2d8a8a3fa34.svg",
+    "static/media/contact-phone.svg": "/Xarial-react-form/static/media/contact-phone.a955b7c281d99ac175ff5e53a8e1466b.svg",
     "index.html": "/Xarial-react-form/index.html",
-    "main.7c455cd1.css.map": "/Xarial-react-form/static/css/main.7c455cd1.css.map",
-    "main.beb8b4c9.js.map": "/Xarial-react-form/static/js/main.beb8b4c9.js.map"
+    "main.e3589330.css.map": "/Xarial-react-form/static/css/main.e3589330.css.map",
+    "main.ed5c7f88.js.map": "/Xarial-react-form/static/js/main.ed5c7f88.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c455cd1.css",
-    "static/js/main.beb8b4c9.js"
+    "static/css/main.e3589330.css",
+    "static/js/main.ed5c7f88.js"
   ]
 }
