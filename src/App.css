@@ -1,23 +1,12 @@
-
-/**, *:before, *:after {*/
-/*    box-sizing: border-box;*/
-/*}*/
-
-
 body {
-    /*display: flex;*/
-    /*width: 100%;*/
-    /*justify-content: center;*/
     font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
-    /*min-height: 100vh;*/
 }
 
 .App {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     min-height: 100vh;
 }
 
@@ -28,13 +17,15 @@ footer {
     color: #FFFFFF;
     background-color: #727272;
     font-size: 19px;
+    min-height: 210px;
+    position: sticky;
 }
 
 .footer-mainBlock {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    margin-top:30px;
+    margin-top: 30px;
     margin-bottom: 10px;
 }
 
@@ -47,7 +38,7 @@ footer {
     width: 20px;
 }
 
-.footer-links{
+.footer-links {
     color: #FFFFFF;
     margin: 0 10px;
 }
@@ -65,6 +56,7 @@ footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 .footer-mainBlock-left {
@@ -74,10 +66,13 @@ footer {
 
 .abn {
     display: flex;
+    position: absolute;
+    bottom: -23px;
+    left: -27px;
 }
 
 .footer-paragraph {
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 .loader-03 {
@@ -129,7 +124,7 @@ footer {
     padding: 24px;
     margin-bottom: 15px;
     text-align: center;
-    border-top: 10px solid rgb(103, 58, 183);
+    border-top: 10px solid #6e326e;
 }
 
 .form__group__uniq {
@@ -142,6 +137,7 @@ footer {
 
 .js-form {
     width: 100vh;
+    margin: 20px 0;
 }
 
 .input {
@@ -185,7 +181,7 @@ input[type="checkbox"] {
 }
 
 input:checked[type="checkbox"] {
-    background: rgb(103, 58, 183);
+    background: #6e326e;
 }
 
 input[type="checkbox"]::after {
@@ -216,7 +212,7 @@ input:checked[type="checkbox"]::after {
     font-size: 14px;
     line-height: 15px;
     padding: 12px 30px;
-    color: rgb(103, 58, 183);
+    color: #6e326e;
     font-weight: 500;
     font-family: 'Roboto Condensed', Тahoma, sans-serif;
     background: #FFF;
@@ -284,7 +280,7 @@ h3 {
     margin: 0;
     color: white;
     padding: 12px 24px;
-    background-color: rgb(103, 58, 183);
+    background-color: #6e326e;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -292,7 +288,7 @@ h3 {
 .radioBtn {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .errorInput {
@@ -324,7 +320,7 @@ input[type="date"] {
 }
 
 input[type="radio"]:first-child {
-    accent-color: rgb(103, 58, 183);
+    color: rgb(103, 58, 183);
 }
 
 input[type="radio"] {
@@ -336,6 +332,11 @@ a {
     display: flex;
     text-align: left;
     color: #1a73e8;
+}
+
+dialog {
+    border: none;
+
 }
 
 .dialog-wrapper {
@@ -370,6 +371,10 @@ a {
     cursor: pointer;
 }
 
+.block_btn {
+    display: flex;
+    justify-content: space-between;
+}
 
 @media (max-width: 767px) {
     .js-form {
@@ -387,9 +392,36 @@ a {
     h1 {
         font-size: 20px;
     }
+
+    .btn {
+        margin: 0 5px;
+        padding: 10px 15px;
+    }
+
+    .footer-mainBlock {
+        padding: 0 10px;
+        flex-direction: column-reverse;
+        font-size: 16px;
+    }
+
+    .footer-mainText {
+        font-size: 14px;
+    }
+
+    .footer-mainBlock-right {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+
+    .footer-mainBlock-left {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .abn {
+        bottom: -24px;
+        left: -23px;
+    }
 }
 
-.block_btn {
-    display: flex;
-    justify-content: space-between;
-}
