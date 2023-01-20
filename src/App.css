@@ -320,7 +320,7 @@ input[type="date"] {
 }
 
 input[type="radio"]:first-child {
-    color: rgb(103, 58, 183);
+    accent-color: rgb(103, 58, 183);
 }
 
 input[type="radio"] {
