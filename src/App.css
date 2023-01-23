@@ -10,112 +10,9 @@ body {
     min-height: 100vh;
 }
 
-footer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: #FFFFFF;
-    background-color: #727272;
-    font-size: 19px;
-    min-height: 210px;
-    position: sticky;
-}
-
-.footer-mainBlock {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.footer-mainBlock-right-icon {
-    margin: 5px 0;
-    display: flex;
-}
-
-.icon-images {
-    width: 20px;
-}
-
-.footer-links {
-    color: #FFFFFF;
-    margin: 0 10px;
-}
-
-.footer-mainText {
-    display: flex;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-    letter-spacing: .2px;
-}
-
-.footer-mainBlock-right {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-}
-
-.footer-mainBlock-left {
-    display: flex;
-    justify-content: space-between;
-}
-
-.abn {
-    display: flex;
-    position: absolute;
-    bottom: -23px;
-    left: -27px;
-}
-
-.footer-paragraph {
-    margin: 0 10px;
-}
-
-.loader-03 {
-    width: 200px;
-    height: 200px;
-    border: 10px solid aqua;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    animation: 1s loader-03 linear infinite;
-    position: relative;
-}
-
-@keyframes loader-03 {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.form__group {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 15px;
-    cursor: pointer;
-
-}
-
-.question:after {
-    content: "*";
-    color: #d93025;
-    font-size: 16px;
-    letter-spacing: 0.2px;
-    line-height: 24px;
-    margin-left: 3px;
-
-}
-
-.form__group:first-child {
-    font-size: 16px;
-    letter-spacing: 0;
+.form {
+    width: 100vh;
+    margin: 20px 0;
 }
 
 .form__group__header {
@@ -127,6 +24,19 @@ footer {
     border-top: 10px solid #6e326e;
 }
 
+.form__group {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.form__group:first-child {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
 .form__group__uniq {
     border-radius: 0 0 8px 8px;
     border: 1px solid #dadce0;
@@ -135,12 +45,29 @@ footer {
     cursor: pointer;
 }
 
-.js-form {
-    width: 100vh;
-    margin: 20px 0;
+.form__question:after {
+    content: "*";
+    color: #d93025;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    margin-left: 3px;
 }
 
-.input {
+.form__errorInput {
+    border-bottom: 1px solid red;
+}
+
+.form__error {
+    border-color: red;
+}
+
+.form__errorMessage {
+    color: red;
+    font-size: 14px;
+}
+
+input {
     width: 50%;
     height: 30px;
     border: none;
@@ -154,19 +81,9 @@ footer {
     border-bottom: 1px solid #ccc;
 }
 
-.input::placeholder {
+input::placeholder {
     color: #ccc;
 }
-
-/*.check-box {*/
-/*}*/
-
-/*.date {*/
-/*    width: 10%;*/
-/*    border: none;*/
-/*    border-bottom: 1px solid #ccc;*/
-/*    padding: 5px;*/
-/*}*/
 
 input[type="checkbox"] {
     position: relative;
@@ -202,7 +119,12 @@ input:checked[type="checkbox"]::after {
     left: 50%;
 }
 
-.btn {
+.form__block__btn__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__btn {
     margin: 10px;
     text-decoration: none;
     border: 1px solid #dadce0;
@@ -221,14 +143,14 @@ input:checked[type="checkbox"]::after {
     border-radius: 8px;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
+.form__btn:hover,
+.form__btn:active,
+.form__btn:focus {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
 }
 
-.btn:before {
+.form__btn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -239,29 +161,23 @@ input:checked[type="checkbox"]::after {
     transition: left 0.7s;
 }
 
-.btn:hover:before,
-.btn:active:before,
-.btn:focus:before {
+.form__btn:hover:before,
+.form__btn:active:before,
+.form__btn:focus:before {
     left: 100%;
 }
 
-.container-btns {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.radioBtn.service {
+.form__radioBtn.service {
     line-height: 2.5;
     letter-spacing: 0.2px;
 }
 
-.radioBtn.application {
+.form__radioBtn.application {
     line-height: 2.5;
     letter-spacing: 0.2px;
 }
 
-.radioBtn.product {
+.form__radioBtn.product {
     line-height: 2.5;
     letter-spacing: 0.2px;
 }
@@ -269,11 +185,6 @@ input:checked[type="checkbox"]::after {
 .hidden {
     display: none;
 }
-
-/*p {*/
-/*    font-size: 16px;*/
-/*    letter-spacing: .2px;*/
-/*}*/
 
 h3 {
     letter-spacing: .2px;
@@ -285,27 +196,13 @@ h3 {
     border-top-right-radius: 8px;
 }
 
-.radioBtn {
+.form__radioBtn {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.errorInput {
-    border-bottom: 1px solid red;
-}
-
-.error {
-    border-color: red;
-}
-
-.errorMessage {
-    color: red;
-    font-size: 14px;
-}
-
-
-.radioBtn label {
+.form__radioBtn label {
     display: flex;
     line-height: 30px;
     margin: 5px;
@@ -336,10 +233,9 @@ a {
 
 dialog {
     border: none;
-
 }
 
-.dialog-wrapper {
+.form__dialog__wrapper {
     display: block;
     position: fixed;
     z-index: 10;
@@ -351,7 +247,7 @@ dialog {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.final-step {
+.form__dialog__final__step {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -360,24 +256,103 @@ dialog {
     border-radius: 10px;
 }
 
-.again {
+.form__final__again {
     border: none;
     outline: none;
     background-color: transparent;
     color: #1a73e8;
 }
 
-.again:hover {
+.form__final__again:hover {
     cursor: pointer;
 }
 
-.block_btn {
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #727272;
+    font-size: 19px;
+    min-height: 210px;
+    position: sticky;
+}
+
+.form__footer__mainText {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    letter-spacing: .2px;
+}
+
+.form__footer__mainBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.form__footer__mainBlock__left {
     display: flex;
     justify-content: space-between;
 }
 
+.form__footer__links {
+    color: #FFFFFF;
+    margin: 0 10px;
+}
+
+.form__footer__mainBlock_right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.form__footer__mainBlock__right__icon {
+    margin: 5px 0;
+    display: flex;
+}
+
+.form__footer__icon-images {
+    width: 20px;
+}
+
+.form__footer__abn {
+    display: flex;
+    position: absolute;
+    bottom: -23px;
+    left: -27px;
+}
+
+.form__footer__footer__paragraph__abn {
+    margin: 0 10px;
+}
+
+.loader-03 {
+    width: 200px;
+    height: 200px;
+    border: 10px solid aqua;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: 1s loader-03 linear infinite;
+    position: relative;
+}
+
+@keyframes loader-03 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media (max-width: 767px) {
-    .js-form {
+    .form {
         width: 100%;
     }
 
@@ -385,7 +360,7 @@ dialog {
         width: 100%;
     }
 
-    .final-step {
+    .form__dialog__final__step {
         width: 90%;
     }
 
@@ -393,35 +368,55 @@ dialog {
         font-size: 20px;
     }
 
-    .btn {
+    .form__btn {
         margin: 0 5px;
         padding: 10px 15px;
     }
 
-    .footer-mainBlock {
+    .form__footer__mainBlock {
         padding: 0 10px;
         flex-direction: column-reverse;
         font-size: 16px;
     }
 
-    .footer-mainText {
+    .form__footer__mainText {
         font-size: 14px;
     }
 
-    .footer-mainBlock-right {
+    .form__footer__mainBlock__right {
         width: 90%;
         margin-bottom: 20px;
         margin-left: 20px;
     }
 
-    .footer-mainBlock-left {
+    .form__footer__mainBlock__left {
         width: 100%;
         margin: 20px 0;
     }
 
-    .abn {
+    .form__footer__abn {
         bottom: -24px;
         left: -23px;
     }
 }
 
+/*.check-box {*/
+/*}*/
+
+/*.date {*/
+/*    width: 10%;*/
+/*    border: none;*/
+/*    border-bottom: 1px solid #ccc;*/
+/*    padding: 5px;*/
+/*}*/
+
+/*p {*/
+/*    font-size: 16px;*/
+/*    letter-spacing: .2px;*/
+/*}*/
+
+/*.container-btns {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/

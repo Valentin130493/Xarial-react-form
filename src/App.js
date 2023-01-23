@@ -94,22 +94,22 @@ const App = () => {
         <div className="App">
             {loading ? <div className="loader-03"/> :
                 <>
-                    <form id="form" className="js-form" onSubmit={(e) => handleSubmit(e)}>
+                    <form id="form" className="form" onSubmit={(e) => handleSubmit(e)}>
                         <div className="form__group__header">
                             <h1>{formData?.header?.title}</h1>
                         </div>
                         {formData?.body?.map((data, index) => {
-                            return <div id={`main-block_${index}`} key={`${index}`}
-                                        className={`js-form ${index === step ? "" : "hidden"}`}>
+                            return <div id={`form__main__block_${index}`} key={`${index}`}
+                                        className={`form ${index === step ? "" : "hidden"}`}>
                                 {data.subtitle !== undefined && <h3 className={"subheader"}>{data?.subtitle}</h3>}
                                 {data.form.map((item, index1) => {
                                     return item.element ?
                                         <div
                                             className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
                                             key={`${index1}`}>
-                                            <p className="question"> {item.element.title}</p>
+                                            <p className="form__question"> {item.element.title}</p>
                                             <input type={`${item.element.type}`}
-                                                   className={` input ${Object.keys(error).includes(item.element.name) ? "error errorInput" : ""}`}
+                                                   className={`input ${Object.keys(error).includes(item.element.name) ? "form__error form__errorInput" : ""}`}
                                                    name={`${item.element.name}`}
                                                    minLength={2}
                                                    value={Object.keys(formValues).includes(item.element.name) ? formValues[item.element.name] : ""}
@@ -117,41 +117,35 @@ const App = () => {
                                                    onBlur={(e) => handleBlur(e)}
                                                    placeholder={`${item.element.placeholder}`}
                                             />
-                                            {error && <p className={"errorMessage"}>{error[item.element.name]}</p>}
-
+                                            {error && <p className={"form__errorMessage"}>{error[item.element.name]}</p>}
                                         </div>
                                         :
                                         <div
                                             className={`${(step !== 0 && index1 === 0) ? "form__group__uniq" : "form__group"}`}
                                             key={`${index1}`}>
-                                            <p className="question">{item.title}</p>
-
-                                            <div className="radioBtn service">
+                                            <p className="form__question">{item.title}</p>
+                                            <div className="form__radioBtn service">
                                                 {item?.elements.map((btn, index) => {
-                                                    return <label key={`${index}`} htmlFor={btn.value}>{
-                                                        btn.label
-                                                    }
-                                                        <input className="answer" type={btn.type}
+                                                    return <label key={`${index}`} htmlFor={btn.value}>{btn.label}
+                                                        <input className="form__answer" type={btn.type}
                                                                name={btn.name}
                                                                value={btn.value}
                                                                onClick={(e) => radioButtonClick(e)}
                                                         />
                                                     </label>
-
                                                 })}
-
                                             </div>
                                         </div>
                                 })}
-                                <div className="block_btn">
-                                    <button type={"button"} className="btn"
+                                <div className="form__block__btn__wrapper">
+                                    <button type={"button"} className="form__btn"
                                             onClick={() => index === 0 ? nextHandleClick() : backHandleClick()}>
                                         {index === 0 ? formData?.buttons?.next : formData?.buttons?.back}
                                     </button>
-                                    {index !== 0 && <button type={"submit"} className="btn">
+                                    {index !== 0 && <button type={"submit"} className="form__btn">
                                         {formData?.buttons?.submit}
                                     </button>}
-                                    <button className="btn"
+                                    <button className="form__btn"
                                             onClick={(e) => handleClearForm(e)}>{formData?.buttons?.clear}
                                     </button>
                                 </div>
@@ -160,11 +154,11 @@ const App = () => {
                     </form>
 
                     <dialog open={openDialog}>
-                        <div className={"dialog-wrapper"}>
-                            <div className="final-step ">
+                        <div className={"form__dialog__wrapper"}>
+                            <div className="form__dialog__final__step ">
                                 <h1>{formData?.modal?.title}</h1>
                                 <p>{formData?.modal?.text}</p>
-                                <button className={"again"} type={"button"} onClick={handleClickAgain}>Submit the form
+                                <button className={"form__final__again"} type={"button"} onClick={handleClickAgain}>Submit the form
                                     again
                                 </button>
                             </div>
@@ -172,44 +166,40 @@ const App = () => {
                     </dialog>
 
                     <footer>
-                        <div className='footer-mainText'>
+                        <div className='form__footer__mainText'>
                             {formData.footer?.mainText}
                         </div>
-                        <div className='footer-mainBlock'>
-                            <div className='footer-mainBlock-left'>
-                                <a className='footer-links' target='_blank' rel="noreferrer"
+                        <div className='form__footer__mainBlock'>
+                            <div className='form__footer__mainBlock__left'>
+                                <a className='form__footer__links' target='_blank' rel="noreferrer"
                                    href={formData.footer?.termsLink}>Terms Of
                                     Use</a>
-                                <a className='footer-links' target='_blank' rel="noreferrer"
+                                <a className='form__footer__links' target='_blank' rel="noreferrer"
                                    href={formData.footer?.privacyLink}>Privacy</a>
-                                <a className='footer-links' target='_blank' rel="noreferrer"
+                                <a className='form__footer__links' target='_blank' rel="noreferrer"
                                    href={formData.footer?.cookiesLink}>Cookies</a>
                             </div>
-                            <div className='footer-mainBlock-right'>
-                                <div className='footer-mainBlock-right-icon'>
-                                    <img className='icon-images'
+                            <div className='form__footer__mainBlock__right'>
+                                <div className='form__footer__mainBlock__right__icon'>
+                                    <img className='form__footer__icon-images'
                                          src={email} alt={"email_icon"}/>
                                     <a target={"_blank"} rel="noreferrer"
-
-                                       className='footer-links'
+                                       className='form__footer__links'
                                        href={`mailto:${formData.footer?.mailLink}`}>{formData.footer?.mailLink}</a>
                                 </div>
-                                <div className='footer-mainBlock-right-icon'>
-                                    <img className='icon-images' src={phone} alt={"phone"}/>
-                                    <a className='footer-links' target={"_blank"} rel="noreferrer"
+                                <div className='form__footer__mainBlock__right__icon'>
+                                    <img className='form__footer__icon-images' src={phone} alt={"phone"}/>
+                                    <a className='form__footer__links' target={"_blank"} rel="noreferrer"
                                        href={`tel:${formData.footer?.phoneLink}`}>{formData?.footer?.phoneLink}</a>
                                 </div>
-                                <div className='footer-mainBlock-right-icon'>
-                                    <img className='icon-images' src={address} alt={"convert"}/>
-                                    <p className='footer-paragraph'>{formData.footer?.address}</p></div>
-                                <div className='abn'><p className='footer-paragraph'>ABN: </p> <p
-                                    className='footer-paragraph'>{formData?.footer?.abn}</p></div>
+                                <div className='form__footer__mainBlock__right__icon'>
+                                    <img className='form__footer__icon-images' src={address} alt={"convert"}/>
+                                    <p className='form__footer__footer__paragraph__abn'>{formData.footer?.address}</p></div>
+                                <div className='form__footer__abn'><p className='form__footer__footer__paragraph__abn'>ABN: </p> <p
+                                    className='form__footer__footer__paragraph__abn'>{formData?.footer?.abn}</p></div>
                             </div>
                         </div>
-
                     </footer>
-
-
                 </>
             }
         </div>
