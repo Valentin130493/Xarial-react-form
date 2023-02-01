@@ -72,8 +72,7 @@ const App = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setOpenDialog(true)
-        console.log(formValues)
-        // await axios.post(`https://test-nscu.onrender.com/docs`, formValues)
+        await axios.post(`https://test-nscu.onrender.com/docs`, formValues)
     }
 
     const handleClickAgain = () => {
