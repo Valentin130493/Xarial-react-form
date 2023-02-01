@@ -1,0 +1,29 @@
+.loader {
+    width: 200px;
+    height: 200px;
+    border: 10px solid #6e326e;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: 1s loader linear infinite;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .loader {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 35%
+    }
+}
