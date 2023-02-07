@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Xarial-react-form/static/css/main.60fda1ec.css",
-    "main.js": "/Xarial-react-form/static/js/main.8b540a38.js",
+    "main.js": "/Xarial-react-form/static/js/main.ca474550.js",
     "static/media/contact-email.svg": "/Xarial-react-form/static/media/contact-email.f8fb37082356b4445b0fd26a06e7a06d.svg",
     "static/media/contact-address.svg": "/Xarial-react-form/static/media/contact-address.57f7eec7d5dc2e1be373a2d8a8a3fa34.svg",
     "static/media/contact-phone.svg": "/Xarial-react-form/static/media/contact-phone.a955b7c281d99ac175ff5e53a8e1466b.svg",
     "index.html": "/Xarial-react-form/index.html",
     "main.60fda1ec.css.map": "/Xarial-react-form/static/css/main.60fda1ec.css.map",
-    "main.8b540a38.js.map": "/Xarial-react-form/static/js/main.8b540a38.js.map"
+    "main.ca474550.js.map": "/Xarial-react-form/static/js/main.ca474550.js.map"
   },
   "entrypoints": [
     "static/css/main.60fda1ec.css",
-    "static/js/main.8b540a38.js"
+    "static/js/main.ca474550.js"
   ]
 }
