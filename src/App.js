@@ -1,12 +1,10 @@
 import {useEffect, useState} from "react";
 
-import Loader from "./components/loader/loader";
-import Footer from "./components/footer/footer";
+import {Dialog, Footer, Loader} from "./components";
+
 import axios from "axios";
 
 import './App.css';
-import Dialog from "./components/dialog/dialog";
-
 
 const App = () => {
 
@@ -16,7 +14,6 @@ const App = () => {
     const [openDialog, setOpenDialog] = useState(false)
     const [formValues, setFormValues] = useState({})
     const [error, serError] = useState({})
-
 
     useEffect(() => {
         setLoading(true)
@@ -38,7 +35,6 @@ const App = () => {
             const condition = formValues?.service === undefined ? 0 : formValues?.service
             setStep(Number(condition))
         }
-
     }
 
     const backHandleClick = () => {
@@ -54,7 +50,6 @@ const App = () => {
                 [e.target.name]: e.target.value
             })
         serError({})
-
     }
 
     const radioButtonClick = (e) => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./dialog.css"
 
-const Dialog = ({open, onClick, body}) => {
+export const Dialog = ({open, onClick, body}) => {
     return (
         <dialog open={open}>
             <div className={"dialog__wrapper"}>
@@ -18,5 +18,3 @@ const Dialog = ({open, onClick, body}) => {
         </dialog>
     );
 };
-
-export default Dialog;

@@ -5,7 +5,7 @@ import address from "../../assets/images/contact-address.svg";
 
 import "./footer.css"
 
-const Footer = ({data}) => {
+export const Footer = ({data}) => {
     return (
         <footer className={"form__footer"}>
             <div className={'footer__mainText'}>
@@ -47,4 +47,3 @@ const Footer = ({data}) => {
     );
 };
 
-export default Footer;

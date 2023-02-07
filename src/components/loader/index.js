@@ -2,8 +2,7 @@ import React from 'react';
 
 import "./loader.css"
 
-const Loader = () => {
+export const Loader = () => {
     return <div className="loader"/>
 };
 
-export default Loader;
