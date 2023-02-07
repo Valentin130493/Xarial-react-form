@@ -53,7 +53,6 @@ const App = () => {
     }
 
     const radioButtonClick = (e) => {
-        console.log(e.target.label)
         setFormValues({...formValues, [e.target.name]: e.target.value})
     }
 
